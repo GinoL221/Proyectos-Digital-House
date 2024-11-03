@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Almacenamiento LocalStorage y SessionStorage</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>LocalStorage</h1>
+
+    <p id="welcomeLocal"></p>
+
+    <input
+      type="text"
+      name="firstname"
+      id="firstname"
+      placeholder="Escribe tu nombre"
+    /><br />
+    <input
+      type="text"
+      name="lastname"
+      id="lastname"
+      placeholder="Escribe tu apellido"
+    /><br />
+    <input
+      type="text"
+      name="job"
+      id="job"
+      placeholder="Escribe tu ocupación"
+    /><br />
+    <button onclick="saveLocal()">Guardar información</button>
+
+    <h1>SessionStorage</h1>
+
+    <p id="welcomeSession"></p>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Escribe tu email"
+    />
+    <br />
+    <input
+      type="text"
+      name="country"
+      id="country"
+      placeholder="Escribe tu pais"
+    />
+    <br />
+    <button onclick="saveSession()">Guardar información</button> <br />
+    <br />
+    <button onclick="logout()">Deslogearme</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

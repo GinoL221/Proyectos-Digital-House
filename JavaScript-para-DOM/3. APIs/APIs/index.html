@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIs</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Browser Web APIs: Geolocalización</h1>
+
+    <h4>Usted está ubicado en la siguiente ubicación:</h4>
+    <p id="ubicacion"></p>
+    <button onclick="getLocation()">Ver ubicación</button>
+    <div><br /></div>
+
+    <h1>Browser Web APIs: Forms</h1>
+    <input id="number" type="number" min="50" max="100" required />
+    <button onclick="doValidationNumber()">¿Es correcto el número?</button>
+
+    <input id="name" type="text" min="3" max="10" required />
+    <button onclick="doValidationName()">¿Es correcto este nombre?</button>
+
+    <p>
+      Si el número es menor a 50 o mayor a 100m o nos olvidamos de ponerlo el
+      error del navegador será:
+    </p>
+    <p id="error"></p>
+
+    <h1>APIs: History</h1>
+
+    <button onclick="goBackx2()">Retrocede dos veces</button> <br />
+    <button onclick="goBack()">Retrocede</button> <br />
+    <button onclick="goForward()">Avanza</button> <br />
+    <button onclick="goFowardx2()">Avanza dos veces</button> <br />
+
+    <script src="script.js"></script>
+  </body>
+</html>

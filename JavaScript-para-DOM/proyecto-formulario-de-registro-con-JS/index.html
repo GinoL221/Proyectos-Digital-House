@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con validaciones</title>
+    <link rel="stylesheet" href="/public/css/normalize.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
+  </head>
+  <body>
+    <h1></h1>
+    <div id="registerForm">
+      <h2>Formulario de Registro</h2>
+
+      <form id="form" novalidate>
+        <label for="firstname">Nombre: </label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          minlength="3"
+          required
+        />
+        <div class="error" id="errorFirstname"></div>
+        <br />
+
+        <label for="lastname">Apellido: </label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          minlength="3"
+          required
+        />
+        <div class="error" id="errorLastname"></div>
+        <br />
+
+        <label for="DNI">Documento: </label>
+        <input
+          type="text"
+          id="DNI"
+          name="DNI"
+          minlength="3"
+          required
+          autocomplete="off"
+        />
+        <div class="error" id="errorDNI"></div>
+        <br />
+
+        <label for="email">Email: </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="off"
+        />
+        <div class="error" id="errorEmail"></div>
+        <br />
+
+        <label for="age">Edad: </label>
+        <input type="number" id="age" name="age" required autocomplete="off" />
+        <div class="error" id="errorAge"></div>
+        <br />
+
+        <label for="occupation">Ocupación: </label>
+        <select name="occupation" id="occupation" required>
+          <option value="">Seleccione...</option>
+          <option value="Programming">Programación</option>
+          <option value="Technology">Tecnología</option>
+          <option value="Health">Salud</option>
+          <option value="Education">Educación</option>
+          <option value="Other">Otro</option>
+        </select>
+        <div class="error" id="errorOccupation"></div>
+        <br />
+
+        <label for="studies">Nivel de estudio: </label>
+        <select name="studies" id="studies">
+          <option value="">Seleccione...</option>
+          <option value="Elementary School ">Primaria</option>
+          <option value="High School">Secundaria</option>
+          <option value="Incomplete University">
+            Universitario incompleto
+          </option>
+          <option value="Complete University">Universitario completo</option>
+          <option value="Master">Posgrado</option>
+        </select>
+        <div class="error" id="errorStudies"></div>
+        <br />
+
+        <label for="inline">
+          <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
+          Acepto los términos y condiciones
+        </label>
+        <div class="error" id="errorAcceptTerms"></div>
+        <br />
+
+        <label class="inline">Publicidad</label>
+        <input type="checkbox" name="publicity" id="offers" value="offers" />
+        <label class="inline" for="offers">Ofertas</label>
+        <input type="checkbox" name="publicity" id="news" value="news" />
+        <label class="inline" for="news">Novedades</label>
+        <div class="error" id="errorPublicity"></div>
+        <br />
+
+        <input type="submit" value="Registrarte" />
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
