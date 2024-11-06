@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // TRY (intentar), CATCH (capturar), FINALLY (finalmente), THROW (lanzar)
 /*
 try {
@@ -24,3 +25,6 @@ const testNumber = () => {
     message.innerHTML = "El dato ingresado es: " + error;
   }
 };
+=======
+//Try and Catch
+>>>>>>> 47056092317fadb7b37a56d714f0dce34a4a836a
