@@ -52,14 +52,18 @@ const changeText2 = async () => {
 changeText2();
 
 async function fetchData() {
+  //Unfunción asíncrona que llama a la API de json place holder (API FALSA)
   try {
+    // Intenta hacer esto:
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/posts/1"
-    );
+    ); // La respuesta de la promesa se guarda en response
+
     if (!response.ok) {
-      throw new Error("Hubo un problema al hacer el llamado a la API");
+      //Si no es ok (puede ser un 400, 500, etc)
+      throw new Error("Hubo un problema al hacer el llamado a la API"); // Va a lanzar un error con un mensaje
     }
-    const data = await response.json();
+    const data = await response.json(); // Si estuviese ok la respuesra (200) se guarda en data
     document.getElementById("async-text3").innerText = data.title;
   } catch (error) {
     document.getElementById("async-text3").innerText = error;
