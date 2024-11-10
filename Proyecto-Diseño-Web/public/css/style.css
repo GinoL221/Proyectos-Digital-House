@@ -2,10 +2,10 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; /* Esto mantiene el ancho y alto a pesar de padding y border*/
+  box-sizing: border-box;
   font-family: "Inconsolata", monospace;
-  list-style: none; /* Quitar los puntos e decoración de las listas */
-  text-decoration: none; /* Esto quita el subrayado de los enlaces */
+  list-style: none;
+  text-decoration: none;
   color: white;
 }
 
@@ -49,11 +49,8 @@ header {
   border-bottom: 2px solid white;
 }
 
-/* #menu-icon{
-    display: none;
-} */
-
 #menu-icon {
+  display: none;
   font-size: 35px;
   z-index: 101;
   cursor: pointer;
@@ -188,83 +185,87 @@ section {
 }
 
 @media (max-width: 992px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .hero-img img {
-        width: 300px;
-        margin: 0 auto;
-    }
-    
-    .hero-text a.videos {
-        margin-left: 0;
-    }
-    
-    .icons {
-        display: none;
-    }
-    
-    .scroll-down {
-        display: none;
-    }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-img img {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-text a.videos {
+    margin-left: 0;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .scroll-down {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-    .menu-icon-action {
-        display: block;
-    }
-    
-    #menu-icon {
-        display: block;
-    }
-    
-    .navlist ul {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 25vh;
-        background-color: #131313;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 20px;
-        transition: all 0.5s ease;
-    }
-    
-    .navlist ul a {
-        margin-left: 0;
-        display: block;
-        margin: 7px 0;
-    }
-    
-    .hero-img img {
-        margin: 0;
-    }
-    
-    .hero {
-        height: 100%;
-        gap: 1rem;
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-text h1 {
-        text-align: center;
-        font-size: 40px;
-    }
-    
-    .hero-text h4 {
-        font-size: 16px;
-    }
+  .menu-icon-action {
+    display: block;
+  }
 
-    .hero-text h5{
-        margin-top: 20px;
-    }
-    
-    .hero-text p {
-        font-size: 70%;
-    }
+  #menu-icon {
+    display: block;
+  }
+
+  .navlist ul {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 25vh;
+    background-color: #131313;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    transition: all 0.5s ease;
+  }
+
+  .navlist ul a {
+    margin-left: 0;
+    display: block;
+    margin: 7px 0;
+  }
+
+  .navlist.open ul {
+    display: flex;
+    right: 0;
+  }
+
+  .hero-img img {
+    margin: 0;
+  }
+
+  .hero {
+    height: 100%;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .hero-text h4 {
+    font-size: 16px;
+  }
+
+  .hero-text h5 {
+    margin-top: 20px;
+  }
+
+  .hero-text p {
+    font-size: 70%;
+  }
 }
-
