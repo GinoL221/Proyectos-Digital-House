@@ -8,7 +8,7 @@ export const FetchApp = () => {
 
   useEffect(() => {
     fetchData(url, "GET");
-  }, []);
+  });
 
   return (
     <>
