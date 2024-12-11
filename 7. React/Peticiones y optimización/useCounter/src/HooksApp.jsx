@@ -2,7 +2,8 @@
 // import { FetchComponent } from "./components/FetchComponent";
 // import { FormsComponent } from "./components/FormsComponent";
 // import { CounterComponent } from "./components/CounterComponent";
-import { CallbackComponent } from "./components/CallbackComponent";
+//import { CallbackComponent } from "./components/CallbackComponent";
+import { ListaTareasComponents } from "./components/ListaTareasComponents";
 
 export const HooksApp = () => {
   return (
@@ -15,9 +16,12 @@ export const HooksApp = () => {
       <hr />
       <FormsComponent />
       <hr />
-      <CounterComponent /> */}
+      <CounterComponent /> 
       <hr />
       <CallbackComponent />
+      */}
+      <hr />
+      <ListaTareasComponents />
     </>
   );
 };
