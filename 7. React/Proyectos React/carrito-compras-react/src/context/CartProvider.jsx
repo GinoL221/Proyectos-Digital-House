@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 import { CartContext } from './CartContext';
 
 export const CartProvider = ({ children }) => {
@@ -12,11 +12,25 @@ export const CartProvider = ({ children }) => {
             case '[CART] Remove Product':
                 return state.filter((product) => product.id !== action.payload);
             case '[CART] Increment Quantity':
-
-                break;
+                return state.map((product) => {
+                    if (product.id === action.payload) {
+                        return {
+                            ...product,
+                            quantity: product.quantity + 1
+                        }
+                    }
+                    return product;
+                });
             case '[CART] Decrement Quantity':
-
-                break;
+                return state.map((product) => {
+                    if (product.id === action.payload && product.quantity > 1) {
+                        return {
+                            ...product,
+                            quantity: product.quantity - 1
+                        }
+                    }
+                    return product;
+                });
 
             default:
                 return state;

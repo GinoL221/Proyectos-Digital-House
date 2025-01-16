@@ -1,9 +1,23 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import Swal from "sweetalert2";
 
 export const ShopingCartPage = () => {
 
-    const { shoppingList, removeProduct, incrementQuality, decrementQuantity } = useContext(CartContext);
+    const { shoppingList, removeProduct, incrementQuantity, decrementQuantity } = useContext(CartContext);
+
+    const calculateTotal = () => {
+        return shoppingList.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
+    }
+
+    const handlerPurchase = () => {
+        const productsPurchase = shoppingList.map((product) => `${product.title} x ${product.quantity}`).join('\n')
+        Swal.fire({
+            icon: 'success',
+            title: 'La compra se ha realizado con éxito',
+            html: '<h4>Resumen de la compra:</h4>' + productsPurchase + `<h4>Total: $${calculateTotal()}</h4>`,
+        })
+    }
 
     return (
         <>
@@ -23,7 +37,19 @@ export const ShopingCartPage = () => {
                         <tr key={product.id}>
                             <th scope="row">{product.title}</th>
                             <td>{product.price}</td>
-                            <td>{product.quantity}</td>
+                            <td>
+                                <button
+                                    className="btn btn-outline-primary"
+                                    onClick={() => decrementQuantity(product.id)}
+                                >-</button>
+
+                                <button className="btn btn-primary">{product.quantity}</button>
+
+                                <button
+                                    className="btn btn-outline-primary"
+                                    onClick={() => incrementQuantity(product.id)}
+                                >+</button>
+                            </td>
                             <td>
                                 <button
                                     className="btn btn-danger"
@@ -32,12 +58,22 @@ export const ShopingCartPage = () => {
                             </td>
                         </tr>
                     ))}
+                    <tr>
+                        <th><b>TOTAL: </b></th>
+                        <td></td>
+                        <td></td>
+                        <td>${calculateTotal()}</td>
+                    </tr>
                 </tbody>
 
             </table>
 
             <div className="d-grid gap-2">
-                <button className="btn btn-primary" type="button">Comprar</button>
+                <button
+                    className="btn btn-primary"
+                    type="button"
+                    onClick={handlerPurchase}
+                >Comprar</button>
             </div>
 
         </>
