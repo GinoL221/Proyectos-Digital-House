@@ -1,7 +1,13 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 export const ShopingCartPage = () => {
+
+    const { shoppingList, removeProduct, incrementQuality, decrementQuantity } = useContext(CartContext);
+
     return (
         <>
-            <h1>Shoping Cart Page</h1>
+            <h1>Tu carrito</h1>
             <table className="table">
                 <thead>
                     <tr>
@@ -11,14 +17,23 @@ export const ShopingCartPage = () => {
                         <th scope="col">Eliminar</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <th scope="row">Nombre</th>
-                        <td>Precio</td>
-                        <td>Cantidad</td>
-                        <td>Eliminar</td>
-                    </tr>
+                    {shoppingList.map((product) => (
+                        <tr key={product.id}>
+                            <th scope="row">{product.title}</th>
+                            <td>{product.price}</td>
+                            <td>{product.quantity}</td>
+                            <td>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => removeProduct(product.id)}
+                                >Eliminar</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
+
             </table>
 
             <div className="d-grid gap-2">

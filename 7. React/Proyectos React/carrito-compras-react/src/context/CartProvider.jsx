@@ -1,16 +1,35 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { CartContext } from './CartContext';
 
 export const CartProvider = ({ children }) => {
 
-    initialState = [];
+    const initialState = [];
 
-    const [shoppingList, dispatch] = useReducer(shoppingReducer, initialState);
+    const cartReducer = (state = initialState, action = {}) => {
+        switch (action.type) {
+            case '[CART] Add Product':
+                return [...state, action.payload];
+            case '[CART] Remove Product':
+                return state.filter((product) => product.id !== action.payload);
+            case '[CART] Increment Quantity':
+
+                break;
+            case '[CART] Decrement Quantity':
+
+                break;
+
+            default:
+                return state;
+        }
+    }
+
+    const [shoppingList, dispatch] = useReducer(cartReducer, initialState);
 
     const addProduct = (product) => {
+        product.quantity = 1;
         const action = {
             type: '[CART] Add Product',
-            payload: id
+            payload: product
         }
         dispatch(action);
     }
@@ -36,26 +55,8 @@ export const CartProvider = ({ children }) => {
         dispatch(action);
     }
 
-    const cartReducer = (state = initialState, action = {}) => {
-        switch (action.type) {
-            case '[CART] Add Product':
-                return [...state, action.payload];
-            case '[CART] Remove Product':
-                return state.filter((product) => product.id !== action.payload);
-            case '[CART] Increment Quantity':
-
-                break;
-            case '[CART] Decrement Quantity':
-
-                break;
-
-            default:
-                return state;
-        }
-    }
-
     return (
-        <CartContext.Provider value={{ products }}>
+        <CartContext.Provider value={{ shoppingList, addProduct, removeProduct, incrementQuantity, decrementQuantity }}>
             {children}
         </CartContext.Provider>
     )
